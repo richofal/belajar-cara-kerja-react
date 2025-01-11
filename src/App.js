@@ -69,9 +69,19 @@ function TabContent({ item }) {
     setLikes(likes + 1);
   }
 
+  function handleLikes() {
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+  }
+
   function handleUndo() {
     setShowDetails(true);
     setLikes(0);
+  }
+
+  function handleUndoLater() {
+    setTimeout(handleUndo, 2000);
   }
 
   return (
@@ -87,13 +97,13 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} 👍</span>
           <button onClick={handleInc}>+1</button>
-          <button>+3</button>
+          <button onClick={handleLikes}>+3</button>
         </div>
       </div>
 
       <div className="tab-undo">
         <button onClick={handleUndo}>Batal</button>
-        <button>Batal dalam 2d</button>
+        <button onClick={handleUndoLater}>Batal dalam 2d</button>
       </div>
     </div>
   );
