@@ -69,6 +69,11 @@ function TabContent({ item }) {
     setLikes(likes + 1);
   }
 
+  function handleUndo() {
+    setShowDetails(true);
+    setLikes(0);
+  }
+
   return (
     <div className="tab-content">
       <h4>{item.title}</h4>
@@ -87,7 +92,7 @@ function TabContent({ item }) {
       </div>
 
       <div className="tab-undo">
-        <button>Batal</button>
+        <button onClick={handleUndo}>Batal</button>
         <button>Batal dalam 2d</button>
       </div>
     </div>
